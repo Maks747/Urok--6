@@ -1,0 +1,69 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Выберите, что переводить: 1-масса   2-расстояние");
+        Scanner scanner = new Scanner(System.in);
+        int izm = scanner.nextInt();
+
+        if (izm == 1) {
+            System.out.println("Выберите единицу измерения: 1-кг  2-грамм");
+        } else {
+            System.out.println("Выберите единицу измерения: 1-метр  2-миля  3-ярд  4-фут");
+        }
+
+        int chislo = scanner.nextInt();
+        System.out.println("Введите число:  ");
+        double userNumber = scanner.nextDouble();
+
+        if (izm == 1) {
+            double kg = 0;
+            double gr = 0;
+
+            switch (chislo) {
+                case 1:
+                    kg = userNumber;
+                    gr = userNumber * 1000;
+                    break;
+                case 2:
+                    kg = userNumber / 1000;
+                    gr = userNumber;
+                    break;
+            }
+            System.out.println("Результат: \n килограмм = " + kg + " \n грамм = " + gr);
+        } else {
+            double metr = 0;
+            double mile = 0;
+            double yard = 0;
+            double foot = 0;
+
+            switch (chislo) {
+                case 1:
+                    metr = userNumber;
+                    mile = userNumber / 1609.34;
+                    yard = userNumber * 1.094;
+                    foot = userNumber * 3.281;
+                break;
+                case 2:
+                    metr = userNumber * 1609.34;
+                    mile = userNumber;
+                    yard = userNumber * 1760;
+                    foot = userNumber * 5280;
+                break;
+                case 3:
+                    metr = userNumber / 1.094;
+                    mile = userNumber / 1760;
+                    yard = userNumber;
+                    foot = userNumber * 3;
+                    break;
+                case 4:
+                    metr = userNumber / 3.281;
+                    mile = userNumber / 5280;
+                    yard = userNumber / 3;
+                    foot = userNumber;
+                    break;
+            }
+            System.out.println("Результат: \n метр = " + metr + "\n миля = " + mile + " \n ярд = " + yard + " \n фут = " + foot );
+        }
+    }
+}
